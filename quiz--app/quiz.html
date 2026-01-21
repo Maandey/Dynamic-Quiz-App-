@@ -1,0 +1,57 @@
+<!-- 
+Project: Dynamic Quiz App
+Author: Anubhav Maandey
+College: Ajay Kumar Garg Engineering College
+Roll No: 2200270120028
+Features: Category/Difficulty filter, 30s timer per question, result analytics + charts
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main class="container">
+    <header class="topbar">
+      <div>
+        <h2 id="quizTitle" data-testid="quizTitle">Quiz</h2>
+        <p class="muted" id="quizMeta" data-testid="quizMeta"></p>
+      </div>
+
+      <div class="timerBox">
+        <div class="timerLabel">Time left</div>
+        <div id="timer" data-testid="timer" class="timerValue">30</div>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="row space-between">
+        <div id="progress" data-testid="progress" class="badge">1 / 0</div>
+        <div id="status" data-testid="status" class="muted"></div>
+      </div>
+
+      <h3 id="questionText" data-testid="questionText">Question text</h3>
+
+      <div id="options" class="options" data-testid="options">
+        <!-- options inserted by JS -->
+      </div>
+
+      <div class="row space-between actions">
+        <button id="prevBtn" data-testid="prevBtn" class="secondary">Prev</button>
+        <button id="nextBtn" data-testid="nextBtn" class="primary">Next</button>
+        <button id="submitBtn" data-testid="submitBtn" class="danger">Submit</button>
+      </div>
+
+      <p class="hint">
+        Tip: If time finishes, the question is treated as <b>Skipped</b> and auto moves forward.
+      </p>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

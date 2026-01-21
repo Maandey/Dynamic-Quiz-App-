@@ -1,0 +1,61 @@
+<!-- 
+Project: Dynamic Quiz App
+Author: Anubhav Maandey
+College: Ajay Kumar Garg Engineering College
+Roll No: 2200270120028
+Features: Category/Difficulty filter, 30s timer per question, result analytics + charts
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Quiz App</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main class="container">
+    <h1>Dynamic Quiz App</h1>
+
+    <section class="card">
+      <label for="category">Category</label>
+      <select id="category" data-testid="category">
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="Aptitude">Aptitude</option>
+        <option value="Web">Web</option>
+      </select>
+
+      <label for="difficulty">Difficulty</label>
+      <select id="difficulty" data-testid="difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+
+      <button id="startQuizBtn" data-testid="startQuizBtn" class="primary">Start Quiz</button>
+
+      <p class="hint">
+        Timer: <b>30 seconds</b> per question • Total Questions : <b>24</b>
+      </p>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("startQuizBtn").addEventListener("click", () => {
+      const category = document.getElementById("category").value;
+      const difficulty = document.getElementById("difficulty").value;
+
+      localStorage.setItem("selectedCategory", category);
+      localStorage.setItem("selectedDifficulty", difficulty);
+
+      // Clear old attempts
+      localStorage.removeItem("quizState");
+      localStorage.removeItem("quizResult");
+
+      window.location.href = "quiz.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!-- 
+Project: Dynamic Quiz App
+Author: Anubhav Maandey
+College: Ajay Kumar Garg Engineering College
+Roll No: 2200270120028
+Features: Category/Difficulty filter, 30s timer per question, result analytics + charts
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Result</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <main class="container">
+    <h1>Quiz Results</h1>
+
+    <section class="card">
+      <div class="row wrap gap">
+        <div class="metric">
+          <div class="metricLabel">Total Score</div>
+          <div id="totalScore" data-testid="totalScore" class="metricValue">0</div>
+        </div>
+        <div class="metric">
+          <div class="metricLabel">Correct</div>
+          <div id="correctCount" data-testid="correctCount" class="metricValue">0</div>
+        </div>
+        <div class="metric">
+          <div class="metricLabel">Incorrect</div>
+          <div id="wrongCount" data-testid="wrongCount" class="metricValue">0</div>
+        </div>
+        <div class="metric">
+          <div class="metricLabel">Skipped</div>
+          <div id="skippedCount" data-testid="skippedCount" class="metricValue">0</div>
+        </div>
+      </div>
+
+      <div class="row wrap gap charts">
+        <div class="chartCard">
+          <h3>Accuracy</h3>
+          <canvas id="accuracyChart" data-testid="accuracyChart"></canvas>
+        </div>
+        <div class="chartCard">
+          <h3>Time Spent (seconds)</h3>
+          <canvas id="timeChart" data-testid="timeChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Detailed Review</h2>
+      <div id="detailList" data-testid="detailList" class="detailList"></div>
+
+      <div class="row space-between actions">
+        <button id="restartBtn" data-testid="restartBtn" class="secondary">Take Another Quiz</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
